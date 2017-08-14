@@ -6,6 +6,11 @@
 <div class="form-group" id="<%= attribute_id %>">
   <%= form.label attribute, label_text.html_safe, { :class => "control-label" } %>
   <div class="controls">
-    <%= form.text_area attribute, options %>
+    <% if @item.send(attribute).is_a?(Array) %>
+      <% # TODO: Add ability to edit this array %>
+      <%= display_text(@item, attribute) %>
+    <% else %>
+      <%= form.text_area attribute, options %>
+    <% end %>
   </div>
 </div>

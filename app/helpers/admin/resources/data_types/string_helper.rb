@@ -12,8 +12,10 @@ module Admin::Resources::DataTypes::StringHelper
   alias_method :display_float, :display_string
   alias_method :display_integer, :display_string
   alias_method :display_position, :display_string
-  alias_method :display_text, :display_string
   alias_method :display_virtual, :display_string
+  alias_method :display_enum, :display_string
+  alias_method :display_uuid, :display_string
+  alias_method :display_citext, :display_string
 
   def string_filter(filter)
     values = set_context.send(filter.to_s.pluralize).to_a
@@ -35,4 +37,7 @@ module Admin::Resources::DataTypes::StringHelper
   alias_method :table_virtual_field, :table_string_field
   alias_method :table_password_field, :table_string_field
   alias_method :table_json_field, :table_string_field
+  alias_method :table_enum_field, :table_string_field
+  alias_method :table_uuid_field, :table_string_field
+  alias_method :table_citext_field, :table_string_field
 end

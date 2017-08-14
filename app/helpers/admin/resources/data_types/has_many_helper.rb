@@ -1,5 +1,9 @@
 module Admin::Resources::DataTypes::HasManyHelper
 
+  def display_has_many(item, attribute)
+    item.send(attribute).map(&:to_label).join(', ')
+  end
+
   def has_many_filter(filter)
     att_assoc = @resource.reflect_on_association(filter.to_sym)
     class_name = att_assoc.options[:class_name] || filter.classify

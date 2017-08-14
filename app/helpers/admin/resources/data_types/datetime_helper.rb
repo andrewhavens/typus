@@ -11,6 +11,8 @@ module Admin::Resources::DataTypes::DatetimeHelper
   alias_method :table_timestamp_field, :table_datetime_field
 
   def display_datetime(item, attribute)
+    value = item.send(attribute)
+    return mdash unless value.present?
     I18n.l(item.send(attribute), format: @resource.typus_date_format(attribute))
   end
 
